@@ -1,8 +1,10 @@
 use scraper::Html;
+use std::env;
 
 fn main() ->  Result<(), Box<dyn std::error::Error>> {
+    let args: Vec<String> = env::args().collect();
     let url = "https://google.com/search";
-    let query = "rust book";
+    let query = &args[1];
     let params = [
         ("q", query)
     ];
